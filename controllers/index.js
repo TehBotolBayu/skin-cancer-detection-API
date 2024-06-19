@@ -1,5 +1,5 @@
 const { loadModel, predict } = require('../utils/tfutil');
-const {storeData, getData} = require('../utils/firestore');
+// const {storeData, getData} = require('../utils/firestore');
 const {v4 : uuidv4} = require('uuid')
 
 module.exports = {
@@ -31,11 +31,11 @@ module.exports = {
                         suggestion,
                         createdAt
                     }
-                    await storeData(id, data);
+                    // await storeData(id, data);
                     return res.status(200).json({
                         status: "success",
                         message: "Model is predicted successfully",
-                        data
+                        // data
                     })
             } else {
                 throw new Error('error')
@@ -51,15 +51,15 @@ module.exports = {
     
     getAllPredictions: async(req, res) => {
         try {
-            const data = await getData();
-            if (!data){
-                return res.status(404).json({
-                    message: "data not found"
-                })
-            }
+            // const data = await getData();
+            // if (!data){
+            //     return res.status(404).json({
+            //         message: "data not found"
+            //     })
+            // }
             return res.status(200).json({
                 status: "success",
-                data
+                // data
             })
         } catch (error) {
             console.log(error.message);
